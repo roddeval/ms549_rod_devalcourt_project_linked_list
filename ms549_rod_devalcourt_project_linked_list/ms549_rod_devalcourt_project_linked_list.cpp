@@ -7,37 +7,26 @@ using namespace std;
 
 int main()
 {
-    //std::cout << "Hello World!\n";
+
     DoubleLinkedList list;
-    int result = 0;
-    list.AddHead(4);
-    list.AddHead(3);
-    list.AddHead(2);
-    list.AddHead(1);
+    DoubleLinkedListNode* findResult = NULL;
+    list.Insert(4);
+    list.Insert(3);
+    list.Insert(2);
+    list.Insert(1);
 
-    result = list.Find(3);
+    findResult = list.Find(3);
 
-    result = list.Find(15);
-    if (result == 0)
+    findResult = list.Find(15);
+    if (findResult == NULL)
     {
-        list.AddTail(15);
+        list.Insert(15);
     }
 
-    list.Delete(3);
+    list.Remove(3);
 
     list.Print();
 
     list.PrintAll();
 
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
