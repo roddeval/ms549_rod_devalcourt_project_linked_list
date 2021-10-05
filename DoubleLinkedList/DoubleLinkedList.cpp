@@ -1,5 +1,6 @@
-#include "DoubleLinkedList.h"
 #include "pch.h"
+#include "DoubleLinkedList.h"
+
 #include <iostream>
 using namespace std;
 
@@ -164,6 +165,61 @@ int DoubleLinkedList::Find(int data)
 
 	return mnFindResult;
 
+}
+
+void DoubleLinkedList::Delete(int data)
+{
+	cout << "DoubleLinkedList::Delete(int " << data << ")" << endl;
+	mnFindResult = 0;
+	DoubleLinkedListNode* node = NULL;
+	if (mnHead != NULL)
+	{
+		node = mnHead;
+		while ((node != NULL) && (mnFindResult == 0))
+		{
+			if (node->data == data)
+			{
+
+				cout << "Found " << node << " ->data = " << node->data << endl;
+
+				mnFindResult = 1;
+			}
+			else
+			{
+				node = node->next;
+			}
+		}
+		DeleteNode(mnHead, node);
+	}
+
+	if (mnFindResult == 0)
+	{
+		cout << endl << "Did not find " << data << endl;
+	}
+
+}
+
+void DoubleLinkedList::DeleteNode(DoubleLinkedListNode* head_ref, DoubleLinkedListNode* del)
+{
+
+	if ((head_ref == NULL) || (del == NULL))
+	{
+		return;
+	}
+	if (head_ref == del)
+	{
+		head_ref = del->next;
+	}
+	if (del->next != NULL)
+	{
+		del->next->previous = del->previous;
+	}
+	if (del->previous != NULL)
+	{
+		del->previous->next = del->next;
+	}
+	delete del;
+	mnCount--;
 }
 
 DoubleLinkedListNode* DoubleLinkedList::CreateNewNode(int data)

@@ -25,8 +25,10 @@ class DoubleLinkedList
 		void MYDLL_API Print();
 		void MYDLL_API PrintAll();
 		int MYDLL_API Find(int data);
+		void MYDLL_API Delete(int data);
 	protected:
 		void Empty(DoubleLinkedListNode* pCurrent);
+		void MYDLL_API DeleteNode(DoubleLinkedListNode* head_ref, DoubleLinkedListNode* del);
 		DoubleLinkedListNode* CreateNewNode(int data);
 	private:
 		DoubleLinkedListNode* mnHead;

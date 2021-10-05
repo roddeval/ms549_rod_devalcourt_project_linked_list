@@ -23,6 +23,8 @@ int main()
         list.AddTail(15);
     }
 
+    list.Delete(3);
+
     list.Print();
 
     list.PrintAll();
