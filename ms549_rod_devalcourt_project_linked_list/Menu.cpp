@@ -13,7 +13,7 @@ void Menu::Initialize()
 	int option = 0;
 	string text = "";
 	mnCurrentCount = 0;
-	mnLimit = 5;
+	mnLimit = 6;
 	mnMenuChoice = 0;
 
 	option = 1;
@@ -33,6 +33,10 @@ void Menu::Initialize()
 	AddMenuOption(option, text);
 
 	option = 5;
+	text = "Display All";
+	AddMenuOption(option, text);
+
+	option = 6;
 	text = "Quit";
 	AddMenuOption(option, text);
 
@@ -75,7 +79,7 @@ void Menu::ProcessMenu()
 		else		
 		{
 			ProcessMenuSelection(mnMenuChoice);
-			if (mnMenuChoice == 5)
+			if (mnMenuChoice == 6)
 			{
 				keepGoing = 0;
 			}
@@ -122,6 +126,9 @@ void Menu::ProcessMenuSelection(int value)
 			mList.Print();
 		break;
 		case 5:
+			mList.PrintAll();
+		break;
+		case 6:
 			cout << "quitting menu" << endl;
 		break;
 		default:

@@ -47,6 +47,11 @@ void DoubleLinkedList::Empty(DoubleLinkedListNode* pCurrent)
 	}
 }
 
+int DoubleLinkedList::Count()
+{
+	return mnCount;
+}
+
 void DoubleLinkedList::Insert(int newData)
 {
 	cout << "DoubleLinkedList::Insert(int " << newData << ")" << endl;
@@ -225,22 +230,22 @@ void DoubleLinkedList::Remove(int data)
 	node = Search(data);
 	if (node != NULL)
 	{
-		Remove(mnHead, node);
+		Remove(node);
 	}
 
 }
 
-void DoubleLinkedList::Remove(DoubleLinkedListNode* head_ref, DoubleLinkedListNode* del)
+void DoubleLinkedList::Remove(DoubleLinkedListNode* del)
 {
-	cout << "DoubleLinkedList::Remove(DoubleLinkedListNode* " << head_ref << ", DoubleLinkedListNode* " << del << ")" << endl;
+	cout << "DoubleLinkedList::Remove(DoubleLinkedListNode(DoubleLinkedListNode* " << del << ")" << endl;
 
-	if ((head_ref == NULL) || (del == NULL))
+	if ((mnHead == NULL) || (del == NULL))
 	{
 		return;
 	}
-	if (head_ref == del)
+	if (mnHead == del)
 	{
-		head_ref = del->next;
+		mnHead = del->next;
 	}
 	if (del->next != NULL)
 	{
