@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <iostream>
 using namespace std;
+#include <chrono>
 
 Menu::Menu()
 {
@@ -136,3 +137,59 @@ void Menu::ProcessMenuSelection(int value)
 		break;
 	}
 }
+
+
+void Menu::Setup10()
+{
+	cout << "Menu::Setup10" << endl;
+	auto start = std::chrono::high_resolution_clock::now();
+	mList = DoubleLinkedList();
+	for (int x = 0; x < 10; x++)
+	{
+		mList.Insert(x);
+	}
+
+	mList.Print();
+
+	auto stop = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = stop - start;
+
+	std::cout << "Elapsed time: " << elapsed.count() << " s" << endl;
+
+}
+void Menu::Setup100()
+{
+	cout << "Menu::Setup100" << endl;
+	auto start = std::chrono::high_resolution_clock::now();
+	mList = DoubleLinkedList();
+	for (int x = 0; x < 100; x++)
+	{
+		mList.Insert(x);
+	}
+
+	mList.Print();
+
+	auto stop = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = stop - start;
+
+	cout << "Elapsed time: " << elapsed.count() << " s" << endl;
+
+
+}
+void Menu::Setup1000()
+{
+	cout << "Menu::Setup1000" << endl;
+	auto start = std::chrono::high_resolution_clock::now();
+	mList = DoubleLinkedList();
+	for (int x = 0; x < 1000; x++)
+	{
+		mList.Insert(x);
+	}
+
+	mList.Print();
+	auto stop = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = stop - start;
+
+	cout << "Elapsed time: " << elapsed.count() << " s" << endl;
+}
+

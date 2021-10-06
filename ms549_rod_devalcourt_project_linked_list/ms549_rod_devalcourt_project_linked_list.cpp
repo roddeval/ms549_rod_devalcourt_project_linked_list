@@ -10,28 +10,8 @@ int main()
 
     Menu menu;
     menu.ProcessMenu();
-
-/*
-    DoubleLinkedList list;
-    DoubleLinkedListNode* findResult = NULL;
-    list.Insert(4);
-    list.Insert(3);
-    list.Insert(2);
-    list.Insert(1);
-
-    findResult = list.Find(3);
-
-    findResult = list.Find(15);
-    if (findResult == NULL)
-    {
-        list.Insert(15);
-    }
-
-    list.Remove(3);
-
-    list.Print();
-
-    list.PrintAll();
-*/
+    menu.Setup10();
+    menu.Setup100();
+    menu.Setup1000();
 
 }

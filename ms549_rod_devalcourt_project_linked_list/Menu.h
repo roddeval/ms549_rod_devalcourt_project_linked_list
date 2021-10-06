@@ -7,8 +7,8 @@ using namespace std;
 
 struct MenuItem
 {
-	int option;
-	string text;
+	int option = 0;
+	string text = "";
 };
 
 class Menu
@@ -26,6 +26,8 @@ class Menu
 		void DisplayMenu();
 		void ProcessMenu();
 		void ProcessMenuSelection(int value);
-
+		void Setup10();
+		void Setup100();
+		void Setup1000();
 };
 
