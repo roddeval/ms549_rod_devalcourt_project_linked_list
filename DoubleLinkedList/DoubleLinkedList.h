@@ -23,10 +23,11 @@ class DoubleLinkedList
 		DOUBLELINKEDLIST_API void Insert(int newData);
 		DOUBLELINKEDLIST_API void Print();
 		DOUBLELINKEDLIST_API void PrintAll();
-		DOUBLELINKEDLIST_API DoubleLinkedListNode* Find(int data);
 		DOUBLELINKEDLIST_API void Remove(int data);
+		DOUBLELINKEDLIST_API int Find(int data);
 	protected:
 		DOUBLELINKEDLIST_API void Empty(DoubleLinkedListNode* pCurrent);
+		DOUBLELINKEDLIST_API DoubleLinkedListNode* Search(int data);
 		DOUBLELINKEDLIST_API void Remove(DoubleLinkedListNode* head_ref, DoubleLinkedListNode* del);
 		DOUBLELINKEDLIST_API DoubleLinkedListNode* CreateNewNode(int data);
 		DOUBLELINKEDLIST_API void AddHead(int newData);

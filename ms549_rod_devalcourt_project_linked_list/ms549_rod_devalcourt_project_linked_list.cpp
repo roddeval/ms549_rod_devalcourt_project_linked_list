@@ -3,11 +3,15 @@
 
 using namespace std;
 #include <iostream>
-#include "..\DoubleLinkedList\DoubleLinkedList.h"
+#include "Menu.h"
 
 int main()
 {
 
+    Menu menu;
+    menu.ProcessMenu();
+
+/*
     DoubleLinkedList list;
     DoubleLinkedListNode* findResult = NULL;
     list.Insert(4);
@@ -28,5 +32,6 @@ int main()
     list.Print();
 
     list.PrintAll();
+*/
 
 }

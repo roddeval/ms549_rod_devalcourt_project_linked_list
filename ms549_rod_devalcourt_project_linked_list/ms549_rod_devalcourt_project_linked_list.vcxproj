@@ -142,12 +142,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="ms549_rod_devalcourt_project_linked_list.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DoubleLinkedList\DoubleLinkedList.vcxproj">
       <Project>{517a551c-06fe-42dc-8431-42ec7b24c4ae}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

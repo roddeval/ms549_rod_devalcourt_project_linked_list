@@ -51,7 +51,7 @@ void DoubleLinkedList::Insert(int newData)
 {
 	cout << "DoubleLinkedList::Insert(int " << newData << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
-	node = Find(newData);
+	node = Search(newData);
 	if (node == NULL)
 	{
 		AddTail(newData);
@@ -147,7 +147,43 @@ void DoubleLinkedList::PrintAll()
 	}
 }
 
-DoubleLinkedListNode* DoubleLinkedList::Find(int data)
+int DoubleLinkedList::Find(int data)
+{
+	cout << "DoubleLinkedList::Find(int " << data << ")" << endl;
+	DoubleLinkedListNode* node = NULL;
+	int nodeFound = 0;
+	int result = 0;
+	if (mnHead != NULL)
+	{
+		node = mnHead;
+		while ((node != NULL) && (nodeFound == 0))
+		{
+			if (node->data == data)
+			{
+				result = node->data;
+				nodeFound = 1;
+			}
+			else
+			{
+				node = node->next;
+				nodeFound = 0;
+			}
+		}
+	}
+
+	if (nodeFound == 0)
+	{
+		cout << endl << "Did not find " << data << endl;
+		result = 0;
+	}
+	else
+	{
+		cout << "Found " << node << " ->data = " << node->data << endl;
+	}
+	return result;
+}
+
+DoubleLinkedListNode* DoubleLinkedList::Search(int data)
 {
 	cout << "DoubleLinkedList::Search(int " << data << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
@@ -186,7 +222,7 @@ void DoubleLinkedList::Remove(int data)
 {
 	cout << "DoubleLinkedList::Delete(int " << data << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
-	node = Find(data);
+	node = Search(data);
 	if (node != NULL)
 	{
 		Remove(mnHead, node);
