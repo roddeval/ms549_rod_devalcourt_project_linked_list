@@ -29,5 +29,6 @@ class Menu
 		void Setup10();
 		void Setup100();
 		void Setup1000();
+		void Setup100000();
 };
 

@@ -1,9 +1,15 @@
 #include "Menu.h"
-#include <cstddef>
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
-#include <chrono>
 
+#include <cstddef>
+#include <chrono>
+#include <sstream> // stringstream
+#include <fstream>
+#include <iomanip> // put_time
+#include <string>  // string
 Menu::Menu()
 {
 	Initialize();
@@ -193,3 +199,53 @@ void Menu::Setup1000()
 	cout << "Elapsed time: " << elapsed.count() << " s" << endl;
 }
 
+void Menu::Setup100000()
+{
+	string pathFile = "C:\\Users\\rdeva\\source\\repos\\roddeval\\MS549_Rod_DeValcourt_BinarySearchTree\\100000_numbers.txt";
+	fstream file;
+	file.open(pathFile, ios::in);
+	string line = "";
+	std::string::size_type sz;
+	int value = 0;
+
+	if (file.is_open())
+	{
+		mList = DoubleLinkedList();
+
+		cout << "100000 numbers" << endl;
+		
+		auto now = std::chrono::system_clock::now();
+
+		auto in_time_t = std::chrono::system_clock::to_time_t(now);
+
+		std::stringstream ss;
+
+		ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
+		string timeString = ss.str();
+
+		cout << "start time: " << timeString << endl;
+
+		while (getline(file, line))
+		{
+			value = std::stoi(line, &sz);
+			mList.Insert(value);
+		}
+
+		mList.Print();
+
+		auto now2 = std::chrono::system_clock::now();
+		auto in_time_t2 = std::chrono::system_clock::to_time_t(now2);
+		std::stringstream ss2;
+		ss2 << std::put_time(std::localtime(&in_time_t2), "%Y-%m-%d %X");
+		string timeString2 = ss2.str();
+
+		cout << "stop time: " << timeString2 << endl;
+
+		std::chrono::duration<double> elapsed = now2 - now;
+
+		std::cout << "Elapsed time: " << elapsed.count() << " s" << endl;
+
+	}
+	file.close();
+
+}

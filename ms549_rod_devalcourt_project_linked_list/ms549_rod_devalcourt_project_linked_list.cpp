@@ -9,9 +9,10 @@ int main()
 {
 
     Menu menu;
-    menu.ProcessMenu();
-    menu.Setup10();
-    menu.Setup100();
-    menu.Setup1000();
+    //menu.ProcessMenu();
+    //menu.Setup10();
+    //menu.Setup100();
+    //menu.Setup1000();
+    menu.Setup100000();
 
 }
