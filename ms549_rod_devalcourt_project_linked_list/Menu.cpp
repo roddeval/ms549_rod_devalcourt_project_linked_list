@@ -176,7 +176,7 @@ void Menu::Setup10()
 	if (mnDebug == 1)
 		cout << "Menu::Setup10" << endl;
 	auto start = std::chrono::high_resolution_clock::now();
-	mList = DoubleLinkedList();
+	mList = DoubleLinkedList(0);
 	for (int x = 0; x < 10; x++)
 	{
 		mList.Insert(x);
@@ -196,7 +196,7 @@ void Menu::Setup100()
 	if (mnDebug == 1)
 		cout << "Menu::Setup100" << endl;
 	auto start = std::chrono::high_resolution_clock::now();
-	mList = DoubleLinkedList();
+	mList = DoubleLinkedList(0);
 	for (int x = 0; x < 100; x++)
 	{
 		mList.Insert(x);
@@ -217,7 +217,7 @@ void Menu::Setup1000()
 	if (mnDebug == 1)
 		cout << "Menu::Setup1000" << endl;
 	auto start = std::chrono::high_resolution_clock::now();
-	mList = DoubleLinkedList();
+	mList = DoubleLinkedList(0);
 	for (int x = 0; x < 1000; x++)
 	{
 		mList.Insert(x);
@@ -243,7 +243,7 @@ void Menu::Setup100000()
 
 	if (file.is_open())
 	{
-		mList = DoubleLinkedList();
+		mList = DoubleLinkedList(0);
 
 		cout << "100000 numbers" << endl;
 		
