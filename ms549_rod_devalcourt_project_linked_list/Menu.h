@@ -17,11 +17,13 @@ class Menu
 		int mnLimit;
 		int mnCurrentCount;
 		int mnMenuChoice;
+		int mnDebug;
 		MenuItem marrMenuItem[10];
 		DoubleLinkedList mList;
 	public:
 		Menu();
-		void Initialize();
+		Menu(int debug);
+		void Initialize(int debug);
 		void AddMenuOption(int num, string sText);
 		void DisplayMenu();
 		void ProcessMenu();

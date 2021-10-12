@@ -17,8 +17,9 @@ class DoubleLinkedList
 {
 	public:
 		DOUBLELINKEDLIST_API DoubleLinkedList();
+		DOUBLELINKEDLIST_API DoubleLinkedList(int debug);
 		DOUBLELINKEDLIST_API ~DoubleLinkedList();
-		DOUBLELINKEDLIST_API void Initialize();
+		DOUBLELINKEDLIST_API void Initialize(int debug);
 		DOUBLELINKEDLIST_API void DeInitialize();
 		DOUBLELINKEDLIST_API void Insert(int newData);
 		DOUBLELINKEDLIST_API void Print();
@@ -36,6 +37,7 @@ class DoubleLinkedList
 private:
 		DoubleLinkedListNode* mnHead;
 		int mnCount;
+		int mnDebug;
 };
 
 

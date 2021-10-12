@@ -8,11 +8,11 @@ using namespace std;
 int main()
 {
 
-    Menu menu;
-    //menu.ProcessMenu();
+    Menu menu(0);
+    menu.ProcessMenu();
     //menu.Setup10();
     //menu.Setup100();
     //menu.Setup1000();
-    menu.Setup100000();
+    //menu.Setup100000();
 
 }

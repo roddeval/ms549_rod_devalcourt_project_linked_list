@@ -10,16 +10,29 @@ using namespace std;
 #include <fstream>
 #include <iomanip> // put_time
 #include <string>  // string
+
 Menu::Menu()
 {
-	Initialize();
+    cout << "Menu::DisplayMenu()" << endl;
+	Initialize(1);
 }
 
-void Menu::Initialize()
+Menu::Menu(int debug)
 {
+	if (debug == 1)
+		cout << "Menu::Menu(" << debug << ")" << endl;
+	Initialize(debug);
+}
+
+void Menu::Initialize(int debug)
+{
+	if (mnDebug == 1)
+		cout << "Menu::Initialize(" << debug << ")" << endl;
 	int option = 0;
 	string text = "";
+
 	mnCurrentCount = 0;
+	mnDebug = debug;
 	mnLimit = 6;
 	mnMenuChoice = 0;
 
@@ -46,10 +59,15 @@ void Menu::Initialize()
 	option = 6;
 	text = "Quit";
 	AddMenuOption(option, text);
+	
+	mList = DoubleLinkedList(mnDebug);
 
 }
+
 void Menu::AddMenuOption(int num, string sText)
 {
+	if (mnDebug == 1)
+		cout << "Menu::AddMenuOption(int " << num << ", string " << sText << ")" << endl;
 	if (mnCurrentCount < mnLimit)
 	{
 		MenuItem menuItem;
@@ -59,16 +77,22 @@ void Menu::AddMenuOption(int num, string sText)
 		mnCurrentCount++;
 	}
 }
+
 void Menu::DisplayMenu()
 {
+	if (mnDebug == 1)
+		cout << "Menu::DisplayMenu()" << endl;
 	for (int x=0; x < mnCurrentCount; x++)
 	{
 		cout << marrMenuItem[x].option << " : " << marrMenuItem[x].text << endl ;
 	}
 	cout << "---------" << endl;
 }
+
 void Menu::ProcessMenu()
 {
+	if (mnDebug == 1)
+		cout << "Menu::ProcessMenu()" << endl;
 	int ok = 0;
 	int keepGoing = 1;
 
@@ -94,8 +118,11 @@ void Menu::ProcessMenu()
 	}
 
 }
+
 void Menu::ProcessMenuSelection(int value)
 {
+	if (mnDebug == 1)
+		cout << "Menu::ProcessMenuSelection(int " << value << ")" << endl;
 	int number = 0;
 	int findNumber = 0;
 
@@ -144,10 +171,10 @@ void Menu::ProcessMenuSelection(int value)
 	}
 }
 
-
 void Menu::Setup10()
 {
-	cout << "Menu::Setup10" << endl;
+	if (mnDebug == 1)
+		cout << "Menu::Setup10" << endl;
 	auto start = std::chrono::high_resolution_clock::now();
 	mList = DoubleLinkedList();
 	for (int x = 0; x < 10; x++)
@@ -163,9 +190,11 @@ void Menu::Setup10()
 	std::cout << "Elapsed time: " << elapsed.count() << " s" << endl;
 
 }
+
 void Menu::Setup100()
 {
-	cout << "Menu::Setup100" << endl;
+	if (mnDebug == 1)
+		cout << "Menu::Setup100" << endl;
 	auto start = std::chrono::high_resolution_clock::now();
 	mList = DoubleLinkedList();
 	for (int x = 0; x < 100; x++)
@@ -182,9 +211,11 @@ void Menu::Setup100()
 
 
 }
+
 void Menu::Setup1000()
 {
-	cout << "Menu::Setup1000" << endl;
+	if (mnDebug == 1)
+		cout << "Menu::Setup1000" << endl;
 	auto start = std::chrono::high_resolution_clock::now();
 	mList = DoubleLinkedList();
 	for (int x = 0; x < 1000; x++)
@@ -201,6 +232,8 @@ void Menu::Setup1000()
 
 void Menu::Setup100000()
 {
+	if (mnDebug == 1)
+		cout << "Menu::Setup100000" << endl;
 	string pathFile = "C:\\Users\\rdeva\\source\\repos\\roddeval\\MS549_Rod_DeValcourt_BinarySearchTree\\100000_numbers.txt";
 	fstream file;
 	file.open(pathFile, ios::in);

@@ -9,26 +9,39 @@ using namespace std;
 
 DoubleLinkedList::DoubleLinkedList()
 {
-	cout << "DoubleLinkedList::DoubleLinkedList()" << endl;
-	Initialize();
+	Initialize(1);
+
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::DoubleLinkedList()" << endl;
+}
+
+DoubleLinkedList::DoubleLinkedList(int debug)
+{
+	if (debug == 1)	
+		cout << "DoubleLinkedList::DoubleLinkedList()" << endl;
+	Initialize(debug);
 }
 
 DoubleLinkedList::~DoubleLinkedList()
 {
-	cout << "DoubleLinkedList::~DoubleLinkedList()" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::~DoubleLinkedList()" << endl;
 	DeInitialize();
 }
 
-void DoubleLinkedList::Initialize()
+void DoubleLinkedList::Initialize(int debug)
 {
-	cout << "DoubleLinkedList::Initialize()" << endl;
+	if (debug == 1)
+		cout << "DoubleLinkedList::Initialize()" << endl;
 	mnHead = NULL;
 	mnCount = 0;
+	mnDebug = debug;
 }
 
 void DoubleLinkedList::DeInitialize()
 {
-	cout << "DoubleLinkedList::DeInitialize()" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::DeInitialize()" << endl;
 	if (mnHead != NULL)
 	{
 		Empty(mnHead);
@@ -41,7 +54,8 @@ void DoubleLinkedList::Empty(DoubleLinkedListNode* pCurrent)
 {
 	if (pCurrent != NULL)
 	{
-		cout << "DoubleLinkedList::Empty(DoubleLinkedListNode* " << pCurrent << ")" << endl;
+		if (mnDebug == 1)
+			cout << "DoubleLinkedList::Empty(DoubleLinkedListNode* " << pCurrent << ")" << endl;
 		Empty(pCurrent->next);
 		delete pCurrent;
 	}
@@ -49,12 +63,15 @@ void DoubleLinkedList::Empty(DoubleLinkedListNode* pCurrent)
 
 int DoubleLinkedList::Count()
 {
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Count()" << endl;
 	return mnCount;
 }
 
 void DoubleLinkedList::Insert(int newData)
 {
-	cout << "DoubleLinkedList::Insert(int " << newData << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Insert(int " << newData << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
 	node = Search(newData);
 	if (node == NULL)
@@ -65,7 +82,8 @@ void DoubleLinkedList::Insert(int newData)
 
 void DoubleLinkedList::AddHead(int newData)
 {
-	cout << "DoubleLinkedList::AddHead(int " << newData << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::AddHead(int " << newData << ")" << endl;
 	DoubleLinkedListNode* newNode = CreateNewNode(newData);
 	if (newNode != NULL)
 	{
@@ -89,7 +107,8 @@ void DoubleLinkedList::AddHead(int newData)
 
 void DoubleLinkedList::AddTail(int newData)
 {
-	cout << "DoubleLinkedList::AddTail(int " << newData << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::AddTail(int " << newData << ")" << endl;
 	DoubleLinkedListNode* newNode = CreateNewNode(newData);
 	DoubleLinkedListNode* node = NULL;
 	if (newNode != NULL)
@@ -117,7 +136,8 @@ void DoubleLinkedList::AddTail(int newData)
 
 void DoubleLinkedList::Print()
 {
-	cout << "DoubleLinkedList::Print" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Print" << endl;
 	cout << "Count = " << mnCount << endl;
 	DoubleLinkedListNode* node = NULL;
 	if (mnHead != NULL)
@@ -134,7 +154,8 @@ void DoubleLinkedList::Print()
 
 void DoubleLinkedList::PrintAll()
 {
-	cout << "DoubleLinkedList::PrintAll" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::PrintAll" << endl;
 	cout << "Count = " << mnCount << endl;
 	DoubleLinkedListNode* node = NULL;
 	if (mnHead != NULL)
@@ -154,7 +175,8 @@ void DoubleLinkedList::PrintAll()
 
 int DoubleLinkedList::Find(int data)
 {
-	cout << "DoubleLinkedList::Find(int " << data << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Find(int " << data << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
 	int nodeFound = 0;
 	int result = 0;
@@ -190,7 +212,8 @@ int DoubleLinkedList::Find(int data)
 
 DoubleLinkedListNode* DoubleLinkedList::Search(int data)
 {
-	cout << "DoubleLinkedList::Search(int " << data << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Search(int " << data << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
 	int nodeFound = 0;
 	if (mnHead != NULL)
@@ -225,7 +248,8 @@ DoubleLinkedListNode* DoubleLinkedList::Search(int data)
 
 void DoubleLinkedList::Remove(int data)
 {
-	cout << "DoubleLinkedList::Delete(int " << data << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Delete(int " << data << ")" << endl;
 	DoubleLinkedListNode* node = NULL;
 	node = Search(data);
 	if (node != NULL)
@@ -237,7 +261,8 @@ void DoubleLinkedList::Remove(int data)
 
 void DoubleLinkedList::Remove(DoubleLinkedListNode* del)
 {
-	cout << "DoubleLinkedList::Remove(DoubleLinkedListNode(DoubleLinkedListNode* " << del << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::Remove(DoubleLinkedListNode(DoubleLinkedListNode* " << del << ")" << endl;
 
 	if ((mnHead == NULL) || (del == NULL))
 	{
@@ -261,7 +286,8 @@ void DoubleLinkedList::Remove(DoubleLinkedListNode* del)
 
 DoubleLinkedListNode* DoubleLinkedList::CreateNewNode(int data)
 {
-	cout << "DoubleLinkedList::CreateNewNode(int " << data << ")" << endl;
+	if (mnDebug == 1)
+		cout << "DoubleLinkedList::CreateNewNode(int " << data << ")" << endl;
 	DoubleLinkedListNode* node = new DoubleLinkedListNode();
 	if (node != NULL)
 	{
